@@ -15,8 +15,6 @@ services:
       unhealthy_threshold: 3
       interval: 5000
       strategy: recreate
-  cadvisor:
-    start_on_create: true
   prometheus-rancher-exporter:
     scale: 1
     start_on_create: true
@@ -27,6 +25,8 @@ services:
       unhealthy_threshold: 3
       interval: 5000
       strategy: recreate
+  cadvisor:
+    start_on_create: true
   prometheus:
     scale: 1
     start_on_create: true
@@ -40,13 +40,3 @@ services:
   graf-db:
     scale: 1
     start_on_create: true
-  influxdb:
-    scale: 1
-    start_on_create: true
-    health_check:
-      healthy_threshold: 2
-      response_timeout: 5000
-      port: 8086
-      unhealthy_threshold: 3
-      interval: 5000
-      strategy: recreate
